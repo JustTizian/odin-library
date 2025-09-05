@@ -36,14 +36,6 @@ function addBookToLibrary(title, author, pages, read) {
     displayBooks();
 }
 
-addBookToLibrary("The Hobbit", "J. R. R. Tolkien", 265, false);
-addBookToLibrary("Harry Potter", "J. K. Rowling", 322, false);
-addBookToLibrary("Der Sandmann", "E. T. A. Hoffmann", 150, false);
-addBookToLibrary("Faust I", "Johann Wolgang von Goethe", 475, false);
-addBookToLibrary("Faust II", "Johann Wolgang von Goethe", 200, false);
-
-console.table(myLibrary)
-
 function displayBooks() {
     bookContainer.replaceChildren();
     myLibrary.forEach(book => {
@@ -80,10 +72,10 @@ function deleteBook(id) {
     displayBooks();
 }
 
-function handleReadStatusToggle(id){
+function handleReadStatusToggle(id) {
     const book = myLibrary.find(book => book.id === id)
     console.log(book)
-    if(book){
+    if (book) {
         book.changeReadStatus();
         displayBooks();
     }
@@ -91,13 +83,13 @@ function handleReadStatusToggle(id){
 
 bookContainer.addEventListener("click", (event) => {
     const bookCard = event.target.closest(".book-card");
-    
-    if(!bookCard) return;
-    
+
+    if (!bookCard) return;
+
     const id = bookCard.dataset.id;
-    
-    if(event.target.matches(".delete-btn")) deleteBook(id)
-    if(event.target.matches(".toggle-btn")) handleReadStatusToggle(id)
+
+    if (event.target.matches(".delete-btn")) deleteBook(id)
+    if (event.target.matches(".toggle-btn")) handleReadStatusToggle(id)
 
 })
 
@@ -112,3 +104,17 @@ newBookForm.addEventListener("submit", (event) => {
     const read = data["read"].checked;
     addBookToLibrary(title, author, pages, read)
 })
+
+function addTestBooks() {
+    addBookToLibrary("The Hobbit", "J. R. R. Tolkien", 265, false);
+    addBookToLibrary("Harry Potter", "J. K. Rowling", 322, false);
+    addBookToLibrary("Der Sandmann", "E. T. A. Hoffmann", 150, false);
+    addBookToLibrary("Faust I", "Johann Wolgang von Goethe", 475, false);
+    addBookToLibrary("Faust II", "Johann Wolgang von Goethe", 200, false);
+}
+
+//IIFE
+(function main(){
+    addTestBooks();
+    displayBooks();
+})()
