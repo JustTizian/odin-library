@@ -10,19 +10,25 @@
 </head>
 
 <body>
-    
-    <form class="new-book-form">
-        <label for="title">Title:<input name="title" id="title" type="text"></label>
-        <label for="author">Author:<input name="author" id="author" type="text"></label>
-        <label for="pages">Pages:<input name="pages" id="pages" type="number"></label>
-        <label for="read" >Read?: <input name="read" id="read" type="checkbox" value="true"></label>
-        <button>ADD BOOK</button>
-    </form>
 
+    <div>
+        <button id="openNewBookModalButton">Add New Book</button>
+    </div>
 
     <div class="book-container">
 
     </div>
+
+    <dialog class="newBookFormDialog">
+        <form method="dialog" class="new-book-form">
+            <label for="title">Title:<input name="title" id="title" type="text"></label>
+            <label for="author">Author:<input name="author" id="author" type="text"></label>
+            <label for="pages">Pages:<input name="pages" id="pages" type="number"></label>
+            <label for="read">Read?: <input name="read" id="read" type="checkbox" value="true"></label>
+            <button type="submit" value="closed">ADD BOOK</button>
+            <button id="cancel" type="reset">Cancel</button>
+        </form>
+    </dialog>
 
 
 

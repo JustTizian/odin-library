@@ -4,6 +4,17 @@ function $(query) {
 
 const bookContainer = $(".book-container");
 const newBookForm = $(".new-book-form");
+const openNewBookModalButton = $("#openNewBookModalButton")
+
+const newBookFormDialog = $(".newBookFormDialog")
+openNewBookModalButton.addEventListener("click", () => {
+    newBookFormDialog.showModal()
+})
+
+const cancelButton = $("#cancel")
+cancelButton.addEventListener("click", (e) => {
+    newBookFormDialog.close()
+})
 
 const myLibrary = []
 
@@ -93,7 +104,7 @@ bookContainer.addEventListener("click", (event) => {
 displayBooks();
 
 newBookForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+    //event.preventDefault();
     const data = event.currentTarget.elements;
     const title = data["title"].value;
     const author = data["author"].value;
