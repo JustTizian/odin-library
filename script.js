@@ -96,7 +96,6 @@ bookContainer.addEventListener("click", (event) => {
 displayBooks();
 
 newBookForm.addEventListener("submit", (event) => {
-    //event.preventDefault();
     const data = event.currentTarget.elements;
     const title = data["title"].value;
     const author = data["author"].value;
