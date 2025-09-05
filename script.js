@@ -22,7 +22,7 @@ function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.read = read ?? false;
     this.id = crypto.randomUUID();
 }
 
@@ -42,6 +42,7 @@ function displayBooks() {
         const bookCardDiv = document.createElement("div");
         bookCardDiv.classList.add("book-card");
         bookCardDiv.setAttribute("data-id", book.id);
+        book.read ? bookCardDiv.style.border = "solid 2px green" : bookCardDiv.style.border = "solid 2px red"
 
         const titleDisplay = document.createElement('h2');
         const authorDisplay = document.createElement('h3');
@@ -105,11 +106,12 @@ newBookForm.addEventListener("submit", (event) => {
 })
 
 function addTestBooks() {
-    addBookToLibrary("The Hobbit", "J. R. R. Tolkien", 265, false);
-    addBookToLibrary("Harry Potter", "J. K. Rowling", 322, false);
-    addBookToLibrary("Der Sandmann", "E. T. A. Hoffmann", 150, false);
-    addBookToLibrary("Faust I", "Johann Wolgang von Goethe", 475, false);
-    addBookToLibrary("Faust II", "Johann Wolgang von Goethe", 200, false);
+    addBookToLibrary("The Hobbit", "J. R. R. Tolkien", 265);
+    addBookToLibrary("Harry Potter", "J. K. Rowling", 322);
+    addBookToLibrary("IT", "Stephen King", 650);
+    addBookToLibrary("Faust I", "Johann Wolgang von Goethe", 475);
+    addBookToLibrary("Faust II", "Johann Wolgang von Goethe", 200);
+    addBookToLibrary("Twilight", "Stephenie Meyer", 340)
 }
 
 //IIFE
