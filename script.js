@@ -18,18 +18,20 @@ cancelButton.addEventListener("click", (e) => {
 
 const myLibrary = []
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read ?? false;
-    this.id = crypto.randomUUID();
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read ?? false;
+        this.id = crypto.randomUUID();
+    }
+    changeReadStatus() {
+        this.read = !this.read;
+        displayBooks();
+    }
 }
 
-Book.prototype.changeReadStatus = function () {
-    this.read = !this.read
-    displayBooks();
-}
 
 function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(new Book(title, author, pages, read));
