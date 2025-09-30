@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div>
-        <button id="openNewBookModalButton">Add New Book</button>
+      <button id="openNewBookModalButton">Add New Book</button>
     </div>
 
-    <div class="book-container">
-
-    </div>
+    <div class="book-container"></div>
 
     <dialog class="newBookFormDialog">
-        <form method="dialog" class="new-book-form">
-            <label for="title">Title:<input name="title" id="title" type="text"></label>
-            <label for="author">Author:<input name="author" id="author" type="text"></label>
-            <label for="pages">Pages:<input name="pages" id="pages" type="number"></label>
-            <label for="read">Read?: <input name="read" id="read" type="checkbox" value="true"></label>
-            <button type="submit" value="closed">ADD BOOK</button>
-            <button id="cancel" type="reset">Cancel</button>
-        </form>
+      <form novalidate method="dialog" class="new-book-form">
+        <label for="title"
+          >Title:<input name="title" id="title" type="text" required
+        /></label>
+        <label for="author"
+          >Author:<input name="author" id="author" type="text" required
+        /></label>
+        <span class="author-error"></span>
+        <label for="pages"
+          >Pages:<input name="pages" id="pages" type="number"
+        /></label>
+        <label for="read"
+          >Read?: <input name="read" id="read" type="checkbox" value="true"
+        /></label>
+        <button type="submit" value="closed">ADD BOOK</button>
+        <button id="cancel" type="reset">Cancel</button>
+      </form>
     </dialog>
-
-
-
-
-
-
-</body>
-
+  </body>
 </html>
